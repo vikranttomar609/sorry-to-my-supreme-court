@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>404: Your Smile Not Found</title>
+
+<style>
+body{
+    margin:0;
+    background:#0d1117;
+    color:#fff;
+    font-family:Consolas, monospace;
+    overflow:hidden;
+    text-align:center;
+}
+
+.container{
+    margin-top:100px;
+    padding:20px;
+}
+
+h1{
+    color:#ff6b81;
+    font-size:3rem;
+}
+
+#typewriter{
+    font-size:1.2rem;
+    white-space:pre-line;
+    max-width:700px;
+    margin:auto;
+    line-height:1.8;
+}
+
+button{
+    margin-top:30px;
+    padding:12px 25px;
+    border:none;
+    border-radius:25px;
+    font-size:1rem;
+    cursor:pointer;
+}
+
+#yes{
+    background:#ff6b81;
+    color:white;
+}
+
+#no{
+    background:#444;
+    color:white;
+    position:absolute;
+}
+
+.heart{
+    position:absolute;
+    color:#ff6b81;
+    font-size:20px;
+    animation:float 6s linear infinite;
+}
+
+@keyframes float{
+    from{
+        transform:translateY(100vh);
+        opacity:1;
+    }
+    to{
+        transform:translateY(-100px);
+        opacity:0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+<h1>404 Error: Your Smile Not Found 💔</h1>
+
+<div id="typewriter"></div>
+
+<button id="yes" onclick="forgive()">Forgive Him ❤️</button>
+<button id="no">No 😤</button>
+
+<h2 id="result"></h2>
+</div>
+
+<script>
+
+const text = `Initializing Girlfriend.exe...
+
+Loading Memories ██████████ 100%
+
+Scanning Recent Events...
+
+❌ Error Found:
+Boyfriend acted stupid.
+
+Attempting Repair...
+██████████ 100%
+
+Root Cause:
+It was me.
+
+I know I hurt you.
+I know you deserved better in that moment.
+
+But every memory with you is still my favourite place.
+
+So here's my official bug fix:
+
+I'm really, really sorry ❤️
+
+Can we restore your smile?`;
+
+let i = 0;
+const speed = 40;
+
+function typeWriter(){
+    if(i < text.length){
+        document.getElementById("typewriter").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeWriter,speed);
+    }
+}
+typeWriter();
+
+function forgive(){
+
+    document.getElementById("result").innerHTML =
+    `🎉 Status Updated 🎉
+    
+Girlfriend Mood: 😊
+Boyfriend Happiness: ∞
+Relationship Stability: 100%
+
+Thank you for giving me another chance ❤️`;
+
+    for(let i=0;i<50;i++){
+        let heart=document.createElement("div");
+        heart.innerHTML="❤️";
+        heart.className="heart";
+        heart.style.left=Math.random()*100+"vw";
+        heart.style.animationDuration=(Math.random()*3+3)+"s";
+        document.body.appendChild(heart);
+    }
+}
+
+const noBtn=document.getElementById("no");
+
+noBtn.addEventListener("mouseover",()=>{
+    noBtn.style.left=Math.random()*80+"vw";
+    noBtn.style.top=Math.random()*80+"vh";
+});
+
+</script>
+
+</body>
+</html>
